@@ -1,17 +1,5 @@
-table {
-    border-collapse: collapse;
-    width: 500px;
-}
-
-td, th {
-    padding: 3px;
-    border: 1px solid black;
-}
-
-button {
-    margin: 15px;
-}
-
-a {
-    text-decoration: none;
+#formControl {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
