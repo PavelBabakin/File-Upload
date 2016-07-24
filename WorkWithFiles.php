@@ -2,13 +2,18 @@
 
 class WorkWithFiles
 {
-
+    //connect to DB
     public $host = 'localhost';
+    //public $host = 'http://y990514p.bget.ru/';
     public $user = 'root';
+    //public $user = 'y990514p_upload';
     public $pass = '';
+    //public $pass = 'babak1nA';
     public $db = 'file_upload';
+    //public $db = 'y990514p_upload';
     public $link;
 
+    //insert data to DB
     public function insert()
     {
         $link = mysqli_connect($this->host, $this->user, $this->pass, $this->db) or die("Error " . mysqli_error($link));
@@ -65,6 +70,7 @@ class WorkWithFiles
         }
     }
 
+    //show files in DB when start a site
     public function getFiles()
     {
         $link = mysqli_connect($this->host, $this->user, $this->pass, $this->db) or die("Error " . mysqli_error($link));
@@ -73,6 +79,7 @@ class WorkWithFiles
         return $result->fetch_all();
     }
 
+    //show files in DB when start a site if theire in
     public function show()
     {
         ?>
@@ -114,6 +121,7 @@ class WorkWithFiles
         <?php
     }
 
+    //show empty table if DB is empty
     public function showEmpty()
     { ?>
         <div class="container">
@@ -134,6 +142,7 @@ class WorkWithFiles
         </div>
     <?php }
 
+    //delete data from DB
     public function delete($id)
     {
         $id = $_POST['id'];

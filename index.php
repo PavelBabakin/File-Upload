@@ -17,13 +17,19 @@ $workWithFiles = new WorkWithFiles();
     <script src="script.js"></script>
 </head>
 <div class="container" id="formControl">
-<form role="form" class="form-inline" action="" method="post" enctype="multipart/form-data">
-    <div class="form-group">
-        <input class="form-control" type="file" name="filename">
-        <button class="form-control btn btn-success" type="submit"><i class="glyphicon glyphicon-send"></i> Upload</button>
+    <form role="form" class="form-inline" action="" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <input class="form-control" type="file" name="filename">
+            <button class="form-control btn btn-success" type="submit"><i class="glyphicon glyphicon-send"></i> Upload
+            </button>
+        </div>
+    </form>
+</div>
+<div class="container">
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped active" role="progressbar"  aria-valuemin="0" aria-valuemax="100"></div>
     </div>
-</form>
-    </div>
+</div>
 <body>
 <div id="wrapper">
     <?php
