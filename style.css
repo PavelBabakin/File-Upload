@@ -3,3 +3,16 @@
     margin-top: 50px;
     margin-bottom: 50px;
 }
+
+.loader {
+    background: url("preloader.gif") no-repeat center top;
+    background-size: 100%;
+    width: 150px;
+    margin: 0 auto;
+    height: 18px;
+    margin-top: 15px;
+    float: none;
+    border-radius: 50px;
+    overflow: hidden;
+    display: none;
+}
