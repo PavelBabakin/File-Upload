@@ -18,21 +18,20 @@ class WorkWithFiles
     {
         $link = mysqli_connect($this->host, $this->user, $this->pass, $this->db) or die("Error " . mysqli_error($link));
         if (!empty($_FILES)) {
-            $uploaddir = __DIR__ . '/temp/';
-            $uploadfile = $uploaddir . basename($_FILES['filename']['name']);
-            if (copy($_FILES['filename']['tmp_name'], $uploadfile)) {
-                $name = $_FILES['filename']['name'];
-                $size = $_FILES['filename']['size'];
-                $type = $_FILES['filename']['type'];
+            $fileGet = $_FILES[0];
+            $uploaddir = '../temp/';
+            $uploadfile = $uploaddir . basename($fileGet['name']);
+            if (copy($fileGet['tmp_name'], $uploadfile)) {
+
+                $name = $fileGet['name'];
+                $size = $fileGet['size'];
+                $type = $fileGet['type'];
                 $path = $uploaddir . $name;
                 $insert_query = "INSERT INTO files (name , size, type, tmp_name)" .
                     "VALUES('$name', '$size', '$type', '$path')";
                 mysqli_query($link, $insert_query) or die("Can't write to db" . mysqli_error($link));
             }
-
             ?>
-            <div class="container">
-            <div class="table-responsive">
                 <table class="table table-bordered table-striped">
                     <tr>
                         <th>ID</th>
@@ -64,8 +63,6 @@ class WorkWithFiles
                     }
                     ?>
                 </table>
-            </div>
-            </div>
             <?php
         }
     }
@@ -79,12 +76,10 @@ class WorkWithFiles
         return $result->fetch_all();
     }
 
-    //show files in DB when start a site if theire in
+    //show files in DB when start a site if there in
     public function show()
     {
         ?>
-        <div class="container">
-        <div class="table-responsive">
             <table class="table table-bordered table-striped">
                 <tr>
                     <th>ID</th>
@@ -116,17 +111,13 @@ class WorkWithFiles
                 }
                 ?>
             </table>
-        </div>
-        </div>
         <?php
     }
 
     //show empty table if DB is empty
     public function showEmpty()
     { ?>
-        <div class="container">
-        <div class="table-responsive">
-            <table class="table table-bordered table-striped">
+        <table class="table table-bordered table-striped">
                 <tr>
                     <th>Name</th>
                     <th>Size</th>
@@ -138,8 +129,6 @@ class WorkWithFiles
                     <td colspan="4">Table is empty</td>
                 </tr>
             </table>
-        </div>
-        </div>
     <?php }
 
     //delete data from DB

@@ -5,7 +5,7 @@
 }
 
 .loader {
-    background: url("preloader.gif") no-repeat center top;
+    background: url("../images/preloader.gif") no-repeat center top;
     background-size: 100%;
     width: 150px;
     margin: 0 auto;

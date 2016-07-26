@@ -11,15 +11,15 @@ $workWithFiles = new WorkWithFiles();
 <head>
     <meta charset="UTF-8">
     <title>File Upload</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
-    <script src="script.js"></script>
+    <script src="../js/script.js"></script>
 </head>
 <div class="container" id="formControl">
-    <form role="form" class="form-inline" action="" method="post" enctype="multipart/form-data">
+    <form id="form" class="form-inline" action="" method="post" enctype="multipart/form-data">
         <div class="form-group">
-            <input class="form-control" type="file" name="filename">
+            <input class="form-control" id="kakoito" type="file" name="filename">
             <button id="btnUpload" class="form-control btn btn-success" type="submit"><i class="glyphicon glyphicon-send"></i> Upload
             </button>
             <div class="clearfix"></div>
@@ -29,6 +29,9 @@ $workWithFiles = new WorkWithFiles();
 </div>
 <body>
 <div id="wrapper">
+
+    <div class="container">
+        <div id="tableResults" class="table-responsive">
     <?php
 
     $fetch = $workWithFiles->getFiles();
@@ -50,6 +53,8 @@ $workWithFiles = new WorkWithFiles();
 
     }
     ?>
+</div>
+</div>
 </div>
 </body>
 </html>
