@@ -1,18 +1,12 @@
 #formControl {
     text-align: center;
     margin-top: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
-.loader {
-    background: url("../images/preloader.gif") no-repeat center top;
-    background-size: 100%;
-    width: 150px;
-    margin: 0 auto;
-    height: 18px;
-    margin-top: 15px;
-    float: none;
-    border-radius: 50px;
-    overflow: hidden;
+#progressBar {
+    margin-top: 20px;
+    width: 384px;
+    margin-left: calc(50% - 192px);
     display: none;
 }

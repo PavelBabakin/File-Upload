@@ -1,11 +1,20 @@
 $(document).ready(function () {
 
-    //upload files
+    var uploader = $("#progressbar"),
+        uploadWrapper = uploader.parent();
+
+
     $("#btnUpload").click(function (e) {
+
         e.preventDefault();
+
+        uploadWrapper.show();
 
         var fd = new FormData();
         var file_data = $('input[type="file"]')[0].files; // for multiple files
+        if (file_data.length == 0) {
+            return false;
+        }
         for (var i = 0; i < file_data.length; i++) {
             fd.append(i, file_data[i]);
         }
@@ -13,19 +22,36 @@ $(document).ready(function () {
         $.each(other_data, function (key, input) {
             fd.append(input.name, input.value);
         });
+
         $.ajax({
-            url: 'upload.php',
+            url: "upload.php",
+            type: "POST",
             data: fd,
             contentType: false,
+            cache: false,
             processData: false,
-            type: 'POST'
+            xhr: function () {
+                //upload Progress
+                var xhr = $.ajaxSettings.xhr();
+                if (xhr.upload) {
+                    xhr.upload.addEventListener('progress', function (event) {
+                        var percent = 0;
+                        var position = event.loaded || event.position;
+                        var total = event.total;
+                        if (event.lengthComputable) {
+                            percent = Math.ceil(position / total * 100);
+                        }
+                        //update progressbar
+                        uploader.css("width", +percent + "%");
+                    }, true);
+                }
+                return xhr;
+            },
         }).done(function (resp) {
-            console.log($("#tableResults"));
-
             $("#tableResults").html(resp);
+            uploader.css("width", 0);
+            uploadWrapper.hide();
         });
-
-
     });
 
 
@@ -34,7 +60,7 @@ $(document).ready(function () {
 
         var id = parseInt($(this).closest("tr").find(".id").html().trim()),
             $this = $(this);
-console.log($this);
+        console.log($this);
         $.post("delete.php", {
             id: id
         }).done(function (resp) {
