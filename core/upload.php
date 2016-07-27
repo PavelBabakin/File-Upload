@@ -5,4 +5,5 @@ function __autoload($class_name)
 }
 //upload method
 $workWithFiles = new WorkWithFiles();
+$workWithFiles->changeHost();
 $workWithFiles->insert();

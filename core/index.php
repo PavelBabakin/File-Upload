@@ -11,13 +11,10 @@ $workWithFiles = new WorkWithFiles();
 <head>
     <meta charset="UTF-8">
     <title>File Upload</title>
-    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../libraries/bootstrap-3.3.7-dist/css/bootstrap.min.css">
-    <script rel="stylesheet" href="../libraries/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
     <script src="../libraries/jquery-3.1.0.js"></script>
-    <script src="../libraries/jQuery-File-Upload/jquery.ui.widget.js"></script>
-    <script src="../libraries/jQuery-File-Upload/jquery.iframe-transport.js"></script>
-    <script src="../libraries/jQuery-File-Upload/jquery.fileupload.js"></script>
+    <script rel="stylesheet" href="../libraries/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
     <script src="../js/script.js"></script>
 </head>
 <div class="container" id="formControl">
@@ -41,6 +38,8 @@ $workWithFiles = new WorkWithFiles();
     <div class="container">
         <div id="tableResults" class="table-responsive">
     <?php
+
+    $workWithFiles->changeHost();
 
     $fetch = $workWithFiles->getFiles();
     if (($fetch != NULL && !empty($_FILES)) || (empty($fetch) && !empty($_FILES))) {

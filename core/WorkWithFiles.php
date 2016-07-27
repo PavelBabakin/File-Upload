@@ -13,6 +13,16 @@ class WorkWithFiles
     //public $db = 'y990514p_upload';
     public $link;
 
+    public function changeHost () {
+        if($_SERVER['HTTP_HOST'] != 'localhost') {
+
+             $this->user = 'y990514p_upload';
+             $this->pass = 'babak1nA';
+             $this->db = 'y990514p_upload';
+
+        }
+    }
+
     //insert data to DB
     public function insert()
     {

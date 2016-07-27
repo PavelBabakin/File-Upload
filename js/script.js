@@ -73,7 +73,7 @@ $(document).ready(function () {
 
             } else {
 
-                $("#wrapper").html(resp)
+                $("#tableResults").html(resp)
 
             }
 
