@@ -16,3 +16,9 @@
     left: 50%;
     margin-left: -192px;
 }
+
+#paginator {
+    text-align: center;
+    padding: 0px;
+    width: 100%;
+}

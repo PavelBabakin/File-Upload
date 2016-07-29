@@ -9,5 +9,6 @@ function __autoload($class_name)
 $workWithFiles = new WorkWithFiles();
 
 $id = $_POST['id'];
+$page = $_POST['page'];
 $workWithFiles->changeHost();
-$workWithFiles->delete($id);
+$workWithFiles->delete($id, $page);

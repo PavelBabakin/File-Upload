@@ -3,8 +3,11 @@ function __autoload($class_name)
 {
     include $class_name . '.php';
 }
-//upload method
+
+//pagination call
+
 $workWithFiles = new WorkWithFiles();
-$workWithFiles->changeHost();
+
 $page = $_POST['page'];
-$workWithFiles->insert($page);
+$workWithFiles->changeHost();
+$workWithFiles->limitFromDB($page);
