@@ -5,6 +5,7 @@ function __autoload($class_name)
 }
 
 //delete method
+
 $workWithFiles = new WorkWithFiles();
 
 $id = $_POST['id'];

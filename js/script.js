@@ -9,7 +9,6 @@ $(document).ready(function () {
         e.preventDefault();
 
         uploadWrapper.show();
-
         var fd = new FormData();
         var file_data = $('input[type="file"]')[0].files; // for multiple files
         if (file_data.length == 0) {
@@ -77,6 +76,30 @@ $(document).ready(function () {
 
             }
 
+        });
+    });
+
+    var config = {
+        body: $('body'),
+        tableTr: 'table tr'
+    }
+    //search
+    config.body.on('input', '#contact-list-search', function () {
+        var value = $(this).val().toLowerCase();
+        config.body.find(config.tableTr).each(function () {
+            // if($this.find
+            var tdData = $($(this).find('td')[1]).html();
+            console.log(tdData);
+            if(typeof tdData != 'undefined'){
+                tdData = tdData.toLowerCase();
+                var foundPos = tdData.indexOf(value, tdData);
+                if (foundPos == -1){
+                    $(this).hide();
+                }else {
+                    $(this).show();
+                }
+                //console.log(foundPos);
+            }
         });
     });
 });

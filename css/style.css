@@ -5,8 +5,14 @@
 }
 
 #progressBar {
+    display: none;
+}
+
+#search, #progressBar {
     margin-top: 20px;
     width: 384px;
-    margin-left: calc(50% - 192px);
-    display: none;
+    position: relative;
+    float: left;
+    left: 50%;
+    margin-left: -192px;
 }
